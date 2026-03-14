@@ -1,0 +1,12 @@
+{
+  "name": "ue5-typescript",
+  "version": "1.0.0",
+  "description": "TypeScript for Unreal Engine 5 with Puerts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

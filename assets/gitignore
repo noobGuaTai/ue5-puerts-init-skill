@@ -1,0 +1,118 @@
+# ==============================================
+# Unreal Engine 5
+# ==============================================
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.suo
+*.sln
+*.VC.db
+*.VC.opendb
+*.opensdf
+*.sdf
+
+# Xcode
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+
+# macOS
+.DS_Store
+*.swp
+*.tmp
+
+# Linux
+*~
+
+# ==============================================
+# UE5 Generated Files
+# ==============================================
+
+# Binary Files
+Binaries/
+Plugins/*/Binaries/
+
+# Intermediate Build Files
+Intermediate/
+Plugins/*/Intermediate/
+
+# Editor Saved Data
+Saved/
+*.saved
+
+# Derived Data Cache
+DerivedDataCache/
+
+# Build Files
+Build/
+!Build/*/PakBlacklist*.txt
+!Build/**/*.ico
+
+# Compiled Content
+*_BuiltData.uasset
+
+# ==============================================
+# TypeScript / JavaScript
+# ==============================================
+
+# Node modules
+Typescript/node_modules/
+
+# Compiled JavaScript (从 Typescript/ 编译生成)
+Content/JavaScript/*.js
+Content/JavaScript/*.js.map
+Content/JavaScript/*.d.ts
+Content/JavaScript/*.d.ts.map
+# 但保留 Puerts 核心库
+!Content/JavaScript/puerts/
+!Content/JavaScript/ffi/
+!Content/JavaScript/react-umg/
+!Content/JavaScript/thirdparty/
+!Content/JavaScript/utils/
+!Content/JavaScript/wasm/
+!Content/JavaScript/PuertsEditor/
+
+# TypeScript 编译产物
+Typescript/*.js
+Typescript/*.js.map
+Typescript/*.d.ts
+Typescript/*.d.ts.map
+
+# ==============================================
+# C++ / Compilers
+# ==============================================
+
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.app
+*.ipa
+
+*.a
+*.lib
+*.lo
+*.slo
+
+*.pch
+*.gch
+
+# ==============================================
+# Logs / Temporary
+# ==============================================
+
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# ==============================================
+# Claude / AI
+# ==============================================
+
+.claude/
+.auto-memory/
