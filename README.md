@@ -17,7 +17,13 @@
 - **Unreal Engine 5.0+**
 - **建议开启代理以加速下载**
 
-### 在初始化完成后，需编译项目且在UE编辑器中点击PuerTS的小蓝标，生成*.d.ts说明文件
+### 在初始化完成后，需编译项目且在UE编辑器中点击PuerTS的小蓝标，生成*.d.ts说明文件后，运行游戏在控制台看到以下信息表示项目加载PuerTS成功:
+```
+Puerts: (0x000001D21AEE75F0) ========================================
+Puerts: (0x000001D21AEE75F0) Puerts TypeScript Loaded Successfully!
+Puerts: (0x000001D21AEE75F0) GameInstance:,[object Object]
+Puerts: (0x000001D21AEE75F0) ========================================
+```
 
 ## 快速开始
 

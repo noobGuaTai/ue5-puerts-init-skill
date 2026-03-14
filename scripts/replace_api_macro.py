@@ -183,6 +183,52 @@ def copy_type_definitions(project_root: Path) -> bool:
     return copied
 
 
+def copy_gameinstance_files(project_root: Path, project_name: str) -> bool:
+    """
+    Copy MyGameInstance template files to project source directory.
+
+    Args:
+        project_root: Project root directory
+        project_name: Name of the project
+
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    script_dir = Path(__file__).parent.parent
+    assets_dir = script_dir / "assets"
+
+    source_dir = project_root / "Source" / project_name
+    public_dir = source_dir / "Public"
+    private_dir = source_dir / "Private"
+
+    # Create directories if they don't exist
+    public_dir.mkdir(parents=True, exist_ok=True)
+    private_dir.mkdir(parents=True, exist_ok=True)
+    print(f"OK: Ensured directories exist: Public/ and Private/")
+
+    # Copy header file
+    header_src = assets_dir / "MyGameInstance.h"
+    header_dst = public_dir / "MyGameInstance.h"
+    if header_src.exists():
+        shutil.copy2(header_src, header_dst)
+        print(f"OK: Copied {header_src.name} to {public_dir.relative_to(project_root)}")
+    else:
+        print(f"WARNING: {header_src.name} not found in assets")
+        return False
+
+    # Copy source file
+    cpp_src = assets_dir / "MyGameInstance.cpp"
+    cpp_dst = private_dir / "MyGameInstance.cpp"
+    if cpp_src.exists():
+        shutil.copy2(cpp_src, cpp_dst)
+        print(f"OK: Copied {cpp_src.name} to {private_dir.relative_to(project_root)}")
+    else:
+        print(f"WARNING: {cpp_src.name} not found in assets")
+        return False
+
+    return True
+
+
 def main() -> int:
     """Main entry point."""
     print("="*60)
@@ -201,6 +247,12 @@ def main() -> int:
 
     api_macro = get_api_macro_name(project_name)
     print(f"API macro: {api_macro}")
+
+    # Copy GameInstance files first (creates directories if needed)
+    print("\nCopying GameInstance files...")
+    if not copy_gameinstance_files(project_root, project_name):
+        print("ERROR: Failed to copy GameInstance files")
+        return 1
 
     header_path = project_root / "Source" / project_name / "Public" / "MyGameInstance.h"
 

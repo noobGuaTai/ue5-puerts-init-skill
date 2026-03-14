@@ -79,25 +79,20 @@ Continue to: Phase 3
 
 The GameInstance initializes the JavaScript runtime when the game starts.
 
-### Step 3.1: Copy Template Files
-
-```bash
-cp assets/MyGameInstance.h Source/[ProjectName]/Public/
-cp assets/MyGameInstance.cpp Source/[ProjectName]/Private/
-```
-
-### Step 3.2: Run Configuration Script
+### Step 3.1: Run Configuration Script
 
 ```bash
 python scripts/replace_api_macro.py
 ```
 
 This script:
-1. Detects your project name from the .uproject file
-2. Replaces `YOURPROJECT_API` placeholder in MyGameInstance.h
-3. Configures `GameInstanceClass` in `Config/DefaultEngine.ini`
-4. Copies minimal TypeScript type definitions to `Typing/`
-5. Backs up the original config file
+1. Creates `Public/` and `Private/` directories if they don't exist
+2. Copies MyGameInstance template files to your project source
+3. Detects your project name from the .uproject file
+4. Replaces `YOURPROJECT_API` placeholder in MyGameInstance.h
+5. Configures `GameInstanceClass` in `Config/DefaultEngine.ini`
+6. Copies minimal TypeScript type definitions to `Typing/`
+7. Backs up the original config file
 
 **Why:** The GameInstance is the entry point for JavaScript execution. It loads `Main.ts` when the game starts.
 
