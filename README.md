@@ -27,12 +27,17 @@ Puerts: (0x000001D21AEE75F0) ========================================
 
 ## 快速开始
 
-1. **向智能体提问**
+1. **克隆SKill到本地**
+   ```
+   git clone https://github.com/noobGuaTai/ue5-puerts-init-skill.git
+   ```
+
+2. **向智能体提问**
    ```
    使用 your_dowloaded_path/ue5-puerts-init/SKILL.md 初始化PuerTS
    ```
 
-2. **智能体将自动执行**
+3. **智能体将自动执行**
    - 安装 Puerts 插件和 V8 引擎
    - 配置 C++ 模块依赖
    - 创建并配置 GameInstance
