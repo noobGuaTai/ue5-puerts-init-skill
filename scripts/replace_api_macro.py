@@ -229,6 +229,34 @@ def copy_gameinstance_files(project_root: Path, project_name: str) -> bool:
     return True
 
 
+def copy_gitignore(project_root: Path) -> bool:
+    """
+    Copy .gitignore template to project root if it doesn't exist.
+
+    Args:
+        project_root: Project root directory
+
+    Returns:
+        bool: True if copied or already exists, False on error
+    """
+    script_dir = Path(__file__).parent.parent
+    gitignore_src = script_dir / "assets" / "gitignore"
+    gitignore_dst = project_root / ".gitignore"
+
+    if not gitignore_src.exists():
+        print(f"WARNING: gitignore template not found: {gitignore_src}")
+        return False
+
+    # Only copy if target doesn't exist, avoid overwriting user's custom config
+    if not gitignore_dst.exists():
+        shutil.copy2(gitignore_src, gitignore_dst)
+        print(f"OK: Created .gitignore")
+        return True
+    else:
+        print(f"INFO: .gitignore already exists, skipped")
+        return True
+
+
 def main() -> int:
     """Main entry point."""
     print("="*60)
@@ -272,6 +300,9 @@ def main() -> int:
 
         print("\nCopying type definitions...")
         copy_type_definitions(project_root)
+
+        print("\nSetting up .gitignore...")
+        copy_gitignore(project_root)
 
         print("\n" + "="*60)
         print("OK: Configuration Complete!")

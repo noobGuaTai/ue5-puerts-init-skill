@@ -92,7 +92,8 @@ This script:
 4. Replaces `YOURPROJECT_API` placeholder in MyGameInstance.h
 5. Configures `GameInstanceClass` in `Config/DefaultEngine.ini`
 6. Copies minimal TypeScript type definitions to `Typing/`
-7. Backs up the original config file
+7. Creates `.gitignore` if it doesn't exist (won't overwrite existing)
+8. Backs up the original config file
 
 **Why:** The GameInstance is the entry point for JavaScript execution. It loads `Main.ts` when the game starts.
 
@@ -102,6 +103,7 @@ grep "[ProjectName]_API" Source/[ProjectName]/Public/MyGameInstance.h
 grep "MyGameInstance" Config/DefaultEngine.ini
 ls Typing/puerts/index.d.ts
 ls Typing/ue/puerts.d.ts
+ls .gitignore
 ```
 
 **Completion:** API macro replaced, GameInstance configured, type definitions copied.
@@ -244,6 +246,7 @@ Project/
 │   ├── puerts/ (minimal type definitions)
 │   └── ue/ (minimal type definitions)
 ├── Config/DefaultEngine.ini
+├── .gitignore (UE5 + TypeScript rules)
 └── Plugins/Puerts/
 ```
 
